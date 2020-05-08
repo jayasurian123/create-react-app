@@ -103,6 +103,13 @@ module.exports = function(webpackEnv) {
           // https://github.com/facebook/create-react-app/issues/2677
           ident: 'postcss',
           plugins: () => [
+            require('postcss-import'),
+            require('postcss-nested'),
+            require('postcss-css-variables')({}),
+            require('postcss-color-hex-alpha'),
+            require('postcss-rem')({
+              baseline: 13,
+            }),
             require('postcss-flexbugs-fixes'),
             require('postcss-preset-env')({
               autoprefixer: {
